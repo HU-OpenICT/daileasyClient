@@ -1,78 +1,79 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <meta charset="UTF-8">
+    <title>Checkin</title>
+    <script src='/js/fetch.js'></script>
+</head>
+
 <body>
-    <!-- <form action="/action_page.php">
-        <label for="birthday">Birthday:</label>
-        <input type="date" id="birthday" name="birthday">
-        <input type="submit" value="Submit">
-      </form> -->
 
     <p><strong>1. Datum</strong>
         <form>
-            <input type="date" id="datum" name="datum">
+            <input type="date" id="date" name="date">
         </form>
 
         <p><strong>2. In welk team zite je?</strong>
             <form>
-                <input type="radio" id="1:1 diet" name="team" value="1:1 diet">
-                <label>1:1 diet</label><br>
-                <input type="radio" id="Afas" name="team" value="Afas">
-                <label>Afas</label><br>
-                <input type="radio" id="eBilly" name="team" value="eBilly">
-                <label>eBilly</label><br>
-                <input type="radio" id="STB" name="team" value="STB">
-                <label>STB</label><br>
-                <input type="radio" id="Greendish" name="team" value="Greendish">
-                <label>Greendish</label><br>
-                <input type="radio" id="Orbisk" name="team" value="Orbisk">
-                <label>Orbisk</label><br>
-                <input type="radio" id="Rysst" name="team" value="Rysst">
-                <label>Rysst</label><br>
-                <input type="radio" id="Toetsregistratie" name="team" value="Toetsregistratie">
-                <label>Toetsregistratie</label><br>
-                <input type="radio" id="Your Next Concepts" name="team" value="Your Next Concepts">
-                <label>Your Next Concepts</label><br>
-                <input type="radio" id="Daileasy " name="team" value="Daileasy">
-                <label>Daileasy</label><br>
+                <input type="radio" id="1:1_diet" name="team" value="1">
+                <label for="1:1_diet">1:1 diet</label><br>
+                <input type="radio" id="Afas" name="team" value="2">
+                <label for="Afas">Afas</label><br>
+                <input type="radio" id="eBilly" name="team" value="3">
+                <label for="eBilly">eBilly</label><br>
+                <input type="radio" id="STB" name="team" value="4">
+                <label for="STB">STB</label><br>
+                <input type="radio" id="Greendish" name="team" value="5">
+                <label for="Greendish">Greendish</label><br>
+                <input type="radio" id="Orbisk" name="team" value="6">
+                <label for="Orbisk">Orbisk</label><br>
+                <input type="radio" id="Rysst" name="team" value="7">
+                <label for="Rysst">Rysst</label><br>
+                <input type="radio" id="Toetsregistratie" name="team" value="8">
+                <label for="Toetsregistratie">Toetsregistratie</label><br>
+                <input type="radio" id="Your_Next_Concepts" name="team" value="9">
+                <label for="Your_Next_Concepts">Your Next Concepts</label><br>
+                <input type="radio" id="Daileasy" name="team" value="10">
+                <label for="Daileasy">Daileasy</label><br>
             </form>
 
             <p><strong>3. Hoe voel je je vandaag?</strong><br>
                 <form>
-                    <input type="radio" id="1" name="Gevoel" value="1">
-                    <label>1</label><br>
-                    <input type="radio" id="2" name="Gevoel" value="2">
-                    <label>2</label><br>
-                    <input type="radio" id="3" name="Gevoel" value="3">
-                    <label>3</label><br>
-                    <input type="radio" id="4" name="Gevoel" value="4">
-                    <label>4</label><br>
-                    <input type="radio" id="5" name="Gevoel" value="5">
-                    <label>5</label><br>
+                    <input type="radio" id="1" name="feeling" value="1">
+                    <label for="1">1</label><br>
+                    <input type="radio" id="2" name="feeling" value="2">
+                    <label for="2">2</label><br>
+                    <input type="radio" id="3" name="feeling" value="3">
+                    <label for="3">3</label><br>
+                    <input type="radio" id="4" name="feeling" value="4">
+                    <label for="4">4</label><br>
+                    <input type="radio" id="5" name="feeling" value="5">
+                    <label for="5">5</label><br>
                 </form>
 
                 <p><strong>4. Wat is de reden dat je je zo voelt?</strong>
                     <form>
-                        <input type="text" placeholder="Enter your answer" id="name" name="name" required minlength="0" maxlength="120" size="20">
+                        <input type="text" placeholder="Enter your answer" id="why_feeling" name="why_feeling" required minlength="0" maxlength="120" size="20">
                     </form>
                     <p><strong>5. Wat heb je gisteren gedaan?</strong>
                         <form>
-                            <input type="text" placeholder="Enter your answer" id="name" name="name" required minlength="0" maxlength="120" size="20">
+                            <input type="text" placeholder="Enter your answer" id="did" name="did" required minlength="0" maxlength="120" size="20">
                         </form>
                         <p><strong>6. Wat heb je gisteren geleerd?</strong>
                             <form>
-                                <input type="text" placeholder="Enter your answer" id="name" name="name" required minlength="0" maxlength="120" size="20">
+                                <input type="text" placeholder="Enter your answer" id="learned" name="learned" required minlength="0" maxlength="120" size="20">
                             </form>
                             <p><strong>7. Wat ga je vandaag doen?</strong>
                                 <form>
-                                    <input type="text" placeholder="Enter your answer" id="name" name="name" required minlength="0" maxlength="120" size="20">
+                                    <input type="text" placeholder="Enter your answer" id="todo" name="todo" required minlength="0" maxlength="120" size="20">
                                 </form>
                                 <p><strong>8. Welke hulpvragen heb je?</strong>
                                     <form>
-                                        <input type="text" placeholder="Enter your answer" id="name" name="name" required minlength="0" maxlength="120" size="20">
+                                        <input type="text" placeholder="Enter your answer" id="question" name="question" required minlength="0" maxlength="120" size="20">
                                     </form>
 
-                                    <button type="button">Submit</button>
+                                    <input type="button" value="Submit" onclick="send_checkin()">
 
 </body>
 
