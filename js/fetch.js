@@ -1,5 +1,5 @@
-var today = new Date();
-var start_time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+const today = new Date();
+const start_time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
 function send_checkin() {
 
