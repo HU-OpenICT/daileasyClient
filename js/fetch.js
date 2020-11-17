@@ -10,6 +10,7 @@ function getTime() {
 function send_checkin() {
     let completiontime = getTime();
     let start_time = stime;
+    let User_ID = document.getElementById('User_ID').value;
     let date = document.getElementById('date').value;
     let team = document.querySelector('input[name="team"]:checked').value;
     let feeling = document.querySelector('input[name="feeling"]:checked').value;
@@ -19,7 +20,7 @@ function send_checkin() {
     let todo = document.getElementById('todo').value;
     let question = document.getElementById('question').value;
     console.log(completiontime)
-    let data = { 'getTime': completiontime, 'start_time': start_time, 'date': date, 'team': team, 'feeling': feeling, 'why_feeling': why_feeling, 'did': did, 'learned': learned, 'todo': todo, 'question': question };
+    let data = { 'getTime': completiontime, 'start_time': start_time, 'User_ID': User_ID, 'date': date, 'team': team, 'feeling': feeling, 'why_feeling': why_feeling, 'did': did, 'learned': learned, 'todo': todo, 'question': question };
 
     fetch('http://127.0.0.1:5000/api/checkins', {
             method: 'POST',
@@ -32,4 +33,77 @@ function send_checkin() {
         .then((result) => {
             alert(result['succes']);
         });
+}
+
+fetch('http://127.0.0.1:5000/api/checkins')
+    .then(response => response.json())
+    .then(json => {
+        var datadiv = document.getElementById("data");
+        var tbl = document.createElement("table");
+        var tblHead = document.createElement("thead");
+        var tblBody = document.createElement("tbody");
+        var keys = ['Checkin_ID', 'Start_time', 'Completion_time', 'User_ID', 'Date', 'Squad', 'Feeling', 'Why_Feeling', 'Did', 'Learned', 'Todo', 'Question'];
+        var header = document.createElement("tr");
+        keys.forEach(function(key) {
+            //Object.keys(checkin).forEach(function (key) {
+            // do something with obj[key]
+            var cell = document.createElement("th");
+            var cellText = document.createTextNode(key);
+            cell.appendChild(cellText);
+            header.appendChild(cell);
+        });
+        tblHead.appendChild(header);
+        tbl.appendChild(tblHead);
+
+
+
+        json.forEach(checkin => {
+            // creates a table row
+            var row = document.createElement("tr");
+            keys.forEach(function(key) {
+                //Object.keys(checkin).forEach(function (key) {
+                // do something with obj[key]
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(checkin[key]);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            });
+
+            // add the row to the end of the table body
+            tblBody.appendChild(row);
+        });
+        tbl.appendChild(tblBody);
+        // appends <table> into <body>
+        datadiv.appendChild(tbl);
+        // sets the border attribute of tbl to 2;
+        tbl.setAttribute("border", "2");
+    })
+function update_checkin() {
+
+    let Date = document.getElementById('Date').value;
+    let Squad = document.querySelector('input[name="Squad"]:checked').value;
+    let Feeling = document.querySelector('input[name="Feeling"]:checked').value;
+    let Why_Feeling = document.getElementById('Why_Feeling').value;
+    let Did = document.getElementById('Did').value;
+    let Learned = document.getElementById('Learned').value;
+    let Todo = document.getElementById('Todo').value;
+    let Question = document.getElementById('Question').value;
+
+
+    let data = { 'Date': Date, 'Squad': Squad, 'Feeling': Feeling, 'Why_Feeling': Why_Feeling, 'Did': Did, 'Learned': Learned, 'Todo': Todo, 'Question': Question };
+
+    var id = document.getElementById('Checkin_id').value
+
+    fetch(`http://127.0.0.1:5000/api/checkins/${id}`, {
+            method: 'PUT',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((result) => {
+            alert(result['succes']);
+        });
+
 }
