@@ -36,6 +36,52 @@ function send_checkin() {
         });
 }
 
+function getcheckins() {
+
+    document.getElementById('yeet').innerHTML = "";
+    
+    
+    let filterfeelings = document.querySelector('input[name="feeling"]:checked').value;
+    let filtersquads = document.querySelector('input[name="squad"]:checked').value;
+
+fetch(`http://127.0.0.1:5000/api/checkins${filterfeelings}${filtersquads}`)
+.then(response => response.json())
+.then(json => {
+    var datadiv = document.getElementById("yeet");
+    var tbl = document.createElement("table");
+    var tblHead = document.createElement("thead");
+    var tblBody = document.createElement("tbody");
+    var keys = ['Start_time', 'Completion_time', 'User_ID', 'Date', 'Squad', 'Feeling', 'Why_Feeling', 'Did', 'Learned', 'Todo', 'Question'];
+    var header = document.createElement("tr");
+    keys.forEach(function(key) {
+        var cell = document.createElement("th");
+        var cellText = document.createTextNode(key);
+        cell.appendChild(cellText);
+        header.appendChild(cell);
+    });
+    tblHead.appendChild(header);
+    tbl.appendChild(tblHead);
+
+
+    json.forEach(checkin => {
+        var row = document.createElement("tr");
+        keys.forEach(function(key) {
+            var cell = document.createElement("td");
+            var cellText = document.createTextNode(checkin[key]);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+        });
+
+        tblBody.appendChild(row);
+    });
+    tbl.appendChild(tblBody);
+    datadiv.appendChild(tbl);
+    tbl.setAttribute("border", "2");
+})
+}
+
+
+
 //opvragen checkins
 function user() {
 
@@ -47,7 +93,7 @@ function user() {
     let filtersquad = document.querySelector('input[name="squad"]:checked').value;
     
 
-fetch(`http://127.0.0.1:5000/api/checkins/user/${userid}${filterfeeling}${filtersquad}`)
+    fetch(`http://127.0.0.1:5000/api/checkins/user/${userid}${filterfeeling}${filtersquad}`)
     .then(response => response.json())
     .then(json => {
         var datadiv = document.getElementById("data");

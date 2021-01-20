@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Test</title>
-<script src="/js/script.js"></script>
+<title>Checkin</title>
+<script src='js/script.js'></script>
+<style> 
+    div.tabel {
+        margin-top: 35px;
+      }
+      #filter0 {
+    display: none;
+}
+     #filter16 {
+    display: none;
+}
+      </style>
 </head>
 <body>
 
-<h1>Test</h1>
+<h1>Alle checkins</h1>
 
-<div id="data"></div>
+    <p><strong>Filter gevoel</strong>
+        <form>
+            <input type="radio" id="filter0" name="feeling" value="" checked>
+            <label for="0"></label>
+            <input type="radio" id="filter1" name="feeling" value="?feeling=1">
+            <label for="1">1</label>
+            <input type="radio" id="filter2" name="feeling" value="?feeling=2">
+            <label for="2">2</label>
+            <input type="radio" id="filter3" name="feeling" value="?feeling=3">
+            <label for="3">3</label>
+            <input type="radio" id="filter4" name="feeling" value="?feeling=4">
+            <label for="4">4</label>
+            <input type="radio" id="filter5" name="feeling" value="?feeling=5">
+            <label for="5">5</label>
+            </form>
+            <p><strong>Filter squad</strong><br>
+            <form>
+            <input type="radio" id="filter16" name="squad" value="" checked>
+            <label for="0"></label>
+            <input type="radio" id="filter6" name="squad" value="?squad=1">
+            <label for="6">1</label>
+            <input type="radio" id="filter7" name="squad" value="?squad=2">
+            <label for="7">2</label>
+            <input type="radio" id="filter8" name="squad" value="?squad=3">
+            <label for="8">3</label>
+            <input type="radio" id="filter9" name="squad" value="?squad=4">
+            <label for="9">4</label>
+            <input type="radio" id="filter10" name="squad" value="?squad=5">
+            <label for="10">5</label>
+            <input type="radio" id="filter11" name="squad" value="?squad=6">
+            <label for="11">6</label>
+            <input type="radio" id="filter12" name="squad" value="?squad=7">
+            <label for="12">7</label>
+            <input type="radio" id="filter13" name="squad" value="?squad=8">
+            <label for="13">8</label>
+            <input type="radio" id="filter14" name="squad" value="?squad=9">
+            <label for="14">9</label>
+            <input type="radio" id="filter15" name="squad" value="?squad=10">
+            <label for="15">10</label>
+            </form>
+
+        <input type="button" value="Submit" onclick="getcheckins();">
+
+<div id="yeet" class="tabel"></div>
 
 
 </body>
