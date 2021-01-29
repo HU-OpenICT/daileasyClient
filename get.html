@@ -4,6 +4,10 @@
 <title>Checkin</title>
 <script src='js/script.js'></script>
 <style> 
+ body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
     div.tabel {
         margin-top: 35px;
       }
@@ -13,11 +17,45 @@
      #filter16 {
     display: none;
 }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1aa1e1;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #e6302b;
+}
+
+.active {
+  background-color: #e6302b;
+}
       </style>
 </head>
 <body>
 
-<h1>Alle checkins</h1>
+<ul>
+    <li><a href="index.html">Checkin invullen</a></li>
+    <li><a href="getuser.html">Student</a></li>
+    <li><a class="active" href="get.html">Docent</a></li>
+    <li><a href="put.html">Update</a></li>
+  </ul>
 
     <p><strong>Filter gevoel</strong>
         <form>
